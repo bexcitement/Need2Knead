@@ -1,0 +1,178 @@
+<html>
+	<head>
+		<script type="text/javascript">
+
+			function changeImage(id) {
+        		document.getElementById(id).src = "../Kneading/TI_images/" + id + "2.jpg";
+        		
+        	}
+
+		</script>
+
+		<style type="text/css">
+			body {
+				background: #99FFFF;
+				font-family: Courier;
+				margin-left: 20px;
+				margin-right: 20px;
+				text-align: center;
+			}
+
+			img[alt=""]{
+				border: black 2px solid;
+				height: 150px;
+				width: 150px;
+				border-radius: 10px;
+
+
+			}
+
+			.friend_boxes {
+				height: 150px;
+				width: 150px;
+				margin: 25px 10px;
+				text-align: center;
+				color: black;
+				display: inline-block;
+			}
+
+			#baker_cat {
+				height: 150px;
+				width: 150px;
+				margin: 25px 10px;
+				text-align: center;
+				color: black;
+				display: inline-block;
+				opacity: 0.5;
+				visibility: hidden;
+			}
+
+			#title {
+				font-size: 30px;
+				text-align: center;
+
+			}
+
+			#the_folks {
+				font-size: 20px;
+				text-align: center;
+
+			}
+
+			button {
+				font-family: Courier;
+				border: black 2px solid;
+				background: white;
+				border-radius: 5px;
+				margin: 8px;
+				padding-left: 5px;
+				padding-right: 5px;
+				font-weight: bold;
+				font-style: 10px;
+			}
+
+			button:hover {
+				background: pink;
+			}
+/*
+			a:link {
+				color: black;
+				text-decoration: none;
+			}
+
+			a:visited {
+				color: green;
+				text-decoration: none;
+			}*/
+
+			#select_all {
+				font-size: 20px;
+			}
+			
+
+
+		</style>
+		<title> Gettin' Kneady! </title>
+	</head>
+
+	<body>
+		<!-- Revamp this in HTML templating language? -->
+		<br>
+		<div id="title"> The Unequivocal Team Irresponsibility </div> <br>
+		<div id="the_folks"> Who do you want to knead? </div><br>
+		<hr>
+
+		<button id="select_all" onclick=""> #NEED2KNEADALL! </button>
+		<br>
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Namesake.jpg" alt="" id="namesake"><button id="namesake_button">Namesake!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Arden.jpg" alt="" id="arden"><button id="arden_button">Arden!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Clayton.jpg" alt="" id="clayton"><button id="clayton_button">Clayton!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Cece.jpg" alt="" id="cece"><button id="cece_button">Cece!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/PB.jpg" alt="" id="pat"><button id="pat_button">Pat!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Erik.jpg" alt="" id="erik"><button id="erik_button">Erik!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Omar.jpg" alt="" id="omar"><button id="omar_button">Omar!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Mo.jpg" alt="" id="mo"><button id="mo_button">Mo!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Kyle_g.jpg" alt="" id="kyle"><button id="kyle_button">Kyle!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Miles.jpg" alt="" id="miles"><button id="miles_button">Miles!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Gare_Bear.jpg" alt="" id="garrett"><button id="garrett_button">Garrett!</button></div>
+
+		<div class="friend_boxes"><img src="../Kneading/TI_images/Yaz.jpg" alt="" id="yaz"><button id="yaz_button">Yaz!</button></div>
+
+		<div id="baker_cat"><img src="http://belarr.com/bakercat/bakercat.gif" alt=""></div>
+		
+		<script type="text/javascript">
+
+			function showAlert(name) {
+  				alert("You kneaded " + name + "!")
+				}
+
+			// closure/xhibit
+			function changeThisImage(id) {
+				return function() {
+					changeImage(id);
+				}
+			}
+
+			//closure
+			function showThisAlert(name) {
+				return function() {
+					showAlert(name);
+				}
+			}
+
+			window.onload = function () {
+				document.getElementById("select_all").addEventListener("click", showThisAlert("ALL THE KNEADING!"), false);
+
+				var allNames = ["namesake", "arden", "clayton", "cece", "pat", "erik", "omar", "mo", "kyle", "miles", "garrett", "yaz"];
+
+				for (var i = allNames.length - 1; i >= 0; i--) {
+					var element = document.getElementById(allNames[i] + "_button");
+					console.log(element);
+
+					// calling function/all the parens
+					element.addEventListener("click", changeThisImage(allNames[i]), false);
+
+					element.addEventListener("click", showThisAlert(allNames[i]), false);
+
+					document.getElementById("select_all").addEventListener("click", changeThisImage(allNames[i]), false);
+
+				};
+			};
+
+		</script>
+
+	</body>
+
+
+
+</html>
